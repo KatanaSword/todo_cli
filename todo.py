@@ -81,7 +81,11 @@ def update_todo(todo_id, new_todo):
         print("\nFailed to update todo")
 
 def delete_todo(todo_id):
-    pass
+    todo = todo_collection.find_one_and_delete({"_id": ObjectId(todo_id)})
+    if todo:
+        print("\nTodo delete successfully")
+    else:
+        print("\nFailed to delete todo")
 
 def main():
     while True:
