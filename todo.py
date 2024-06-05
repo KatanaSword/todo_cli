@@ -19,7 +19,10 @@ def todos_list():
         print("\nTodo does not exist")
         
 def complete_todos_list():
-    pass
+    todo = todo_collection.find({"is_todo_complete": True})
+    if todo:
+        for todos in todo:
+            print(f"Todo ID: {todos["_id"]} | Todo: {todos["todo"]} | Complete: {todos["is_todo_complete"]}")
 
 def incomplete_todos_list():
     pass
