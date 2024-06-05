@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from bson import ObjectId
 import config
 
 try:
@@ -41,7 +42,19 @@ def add_todo(todo, is_todo_complete):
         print("\nTodo not created please try again")
 
 def complete_todo(todo_id):
-    pass
+    todo = todo_collection.find_one_and_update(
+        {   
+            "_id": ObjectId(todo_id)
+        },
+        {
+            "$set": {"is_todo_complete": True}
+        }
+    )
+
+    if todo:
+        print("\nTodo is completed")
+    else:
+        print("\nFailed to complete todo")
 
 def update_todo(todo_id, new_todo):
     pass
