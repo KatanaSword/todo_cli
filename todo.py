@@ -1,3 +1,14 @@
+from pymongo import MongoClient
+import config
+
+try:
+    connect_db = MongoClient(config.MONGODB_URL)
+    db = connect_db["Todo_CLI"]
+    todo_collection = db["Todo"]
+except Exception as e:
+    print(f"Error connecting to database: {e}")
+    exit(1)
+
 def todos_list():
     pass
         
