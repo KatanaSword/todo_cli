@@ -63,7 +63,22 @@ def complete_todo(todo_id):
         print("\nFailed to complete todo")
 
 def update_todo(todo_id, new_todo):
-    pass
+    if (len(new_todo) == 0):
+        print("\nTodo is empty try again")
+        return
+    
+    todo = todo_collection.find_one_and_update(
+        {
+            "_id": ObjectId(todo_id)
+        },
+        {
+            "$set": {"todo": new_todo}
+        }
+    )
+    if todo:
+        print("\nTodo update successfully")
+    else:
+        print("\nFailed to update todo")
 
 def delete_todo(todo_id):
     pass
