@@ -10,7 +10,12 @@ except Exception as e:
     exit(1)
 
 def todos_list():
-    pass
+    todo = todo_collection.find()
+    if todo:
+        for todos in todo:
+            print(f"Todo ID: {todos["_id"]} | Todo: {todos["todo"]} | Complete: {todos["is_todo_complete"]}")
+    else:
+        print("\nTodo does not exist")
         
 def complete_todos_list():
     pass
