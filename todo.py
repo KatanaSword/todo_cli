@@ -19,7 +19,21 @@ def incomplete_todos_list():
     pass
 
 def add_todo(todo, is_todo_complete):
-    pass
+    if (len(todo) == 0):
+        print("\nTodo is empty try again")
+        return
+
+    create_todo = todo_collection.insert_one(
+        {
+            "todo": todo,
+            "is_todo_complete": is_todo_complete
+        }
+    )
+
+    if create_todo:
+        print("\nTodo create successfully")
+    else:
+        print("\nTodo not created please try again")
 
 def complete_todo(todo_id):
     pass
