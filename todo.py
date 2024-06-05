@@ -25,7 +25,10 @@ def complete_todos_list():
             print(f"Todo ID: {todos["_id"]} | Todo: {todos["todo"]} | Complete: {todos["is_todo_complete"]}")
 
 def incomplete_todos_list():
-    pass
+    todo = todo_collection.find({"is_todo_complete": False})
+    if todo:
+        for todos in todo:
+            print(f"Todo ID: {todos["_id"]} | Todo: {todos["todo"]} | Complete: {todos["is_todo_complete"]}")
 
 def add_todo(todo, is_todo_complete):
     if (len(todo) == 0):
