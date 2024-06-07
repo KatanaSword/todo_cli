@@ -1,9 +1,13 @@
+import os
 from pymongo import MongoClient
 from bson import ObjectId
-import config
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 try:
-    connect_db = MongoClient(config.MONGODB_URL)
+    connect_db = MongoClient(os.getenv("MONGODB_URL"))
     db = connect_db["Todo_CLI"]
     todo_collection = db["Todo"]
 except Exception as e:
