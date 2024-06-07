@@ -27,7 +27,7 @@ A command-line interface (CLI) application to manage a to-do list using MongoDB 
 
 4. **Set up MongoDB:**
    - Ensure MongoDB is installed and running on your machine or use a cloud MongoDB service.
-   - Create a `config.py` file with your MongoDB URL:
+   - Create a `.env` file with your MongoDB URL:
      ```python
      MONGODB_URL = "your_mongodb_connection_string"
      ```
