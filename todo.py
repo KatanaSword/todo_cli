@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 try:
     connect_db = MongoClient(os.getenv("MONGODB_URL"))
     db = connect_db["Todo_CLI"]
@@ -128,8 +127,6 @@ def main():
                 break
             case _:
                 print("Invalid choice")
-
-
 
 if __name__ == "__main__":
     main()
